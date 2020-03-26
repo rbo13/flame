@@ -32,7 +32,7 @@ jobs:
             curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh
             dep ensure
         else
-            go mod tidy && go mod install
+            go mod tidy && go mod download
         fi
 
     - name: Build
