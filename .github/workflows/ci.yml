@@ -31,7 +31,19 @@ jobs:
         if [ -f Gopkg.toml ]; then
             curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh
             dep ensure
+        else
+            go mod tidy && go mod install
         fi
 
     - name: Build
       run: go build -v .
+
+  test:
+    name: Test
+    needs: [ build ]
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@master
+    - uses: actions/setup-go@v1
+    - run: go test -v -count=1 ./...
