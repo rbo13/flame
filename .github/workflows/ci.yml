@@ -6,6 +6,7 @@ on:
       - 'codeclimate'
       - 'fix/**'
       - 'features/**'
+      - 'master'
   pull_request:
     branches: [ master ]
 
@@ -65,4 +66,3 @@ jobs:
         CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
       with:
         coverageCommand: go test -coverprofile=cover.out
-        debug: true
