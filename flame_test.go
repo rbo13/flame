@@ -7,7 +7,7 @@ import (
 )
 
 // works by removing the common
-// character occurence of the 2 names
+// character occurrence of the 2 names
 // then counting the renaming characters.
 // the number of characters left, determines
 // how do you remove each character from the
