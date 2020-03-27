@@ -57,4 +57,4 @@ jobs:
         CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
       with:
         coverageCommand: |
-          go test -v ./... -coverprofile=cov.out -covermode=atomic
+          $(which gocov) test | $(which gocov) report
