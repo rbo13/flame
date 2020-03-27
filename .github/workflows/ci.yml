@@ -38,21 +38,9 @@ jobs:
     - name: Build
       run: go build -v .
 
-  test:
-    name: Test
-    needs: [ build ]
-    runs-on: ubuntu-latest
-
-    steps:
-    - uses: actions/checkout@master
-    - uses: actions/setup-go@v1
-      with:
-        go-version: 1.13
-    - run: go test -covermode=atomic ./...
-
   coverage:
     name: Create Code Coverage Report
-    needs: [ test ]
+    needs: [ build ]
     runs-on: ubuntu-latest
 
     steps:
@@ -61,8 +49,13 @@ jobs:
     - uses: actions/setup-go@v1
       with:
         go-version: 1.13
-    - uses: paambaati/codeclimate-action@v2.5.5
-      env:
-        CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
+    - run: |
+        go test -v ./... -coverprofile=cov.out -covermode=atomic
+
+    - name: Upload Code Coverage to Codecov
+      uses: codecov/codecov-action@v1
       with:
-        coverageCommand: go test -coverprofile=cover.out
+        token: ${{ secrets.CODECOV_TOKEN }}
+        file: ./cov.out
+        flags: unittests
+        fail_ci_if_error: true
