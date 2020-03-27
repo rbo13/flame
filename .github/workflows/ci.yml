@@ -50,11 +50,12 @@ jobs:
       with:
         go-version: 1.13
     - run: |
-        go get github.com/axw/gocov/gocov
-        go env
+        go test -v ./... -coverprofile=cov.out -covermode=atomic
 
-    - uses: paambaati/codeclimate-action@v2.5.5
-      env:
-        CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
+    - name: Upload Code Coverage to Codecov
+      uses: codecov/codecov-action@v1
       with:
-        coverageCommand: |
+        token: ${{ secrets.CODECOV_TOKEN }}
+        file: ./cov.out
+        flags: unittests
+        fail_ci_if_error: true
