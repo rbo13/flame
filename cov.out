@@ -1,0 +1,17 @@
+mode: atomic
+github.com/rbo13/flame/flame.go:16.63,20.30 3 30
+github.com/rbo13/flame/flame.go:27.2,27.35 1 30
+github.com/rbo13/flame/flame.go:20.30,21.43 1 95
+github.com/rbo13/flame/flame.go:24.3,24.12 1 30
+github.com/rbo13/flame/flame.go:21.43,23.4 1 65
+github.com/rbo13/flame/flame.go:31.39,34.30 2 5
+github.com/rbo13/flame/flame.go:43.2,43.34 1 5
+github.com/rbo13/flame/flame.go:34.30,35.31 1 19
+github.com/rbo13/flame/flame.go:35.31,36.22 1 21
+github.com/rbo13/flame/flame.go:36.22,39.5 2 5
+github.com/rbo13/flame/flame.go:47.36,52.22 4 5
+github.com/rbo13/flame/flame.go:64.2,64.41 1 5
+github.com/rbo13/flame/flame.go:52.22,55.17 2 20
+github.com/rbo13/flame/flame.go:62.3,62.16 1 20
+github.com/rbo13/flame/flame.go:55.17,57.4 1 5
+github.com/rbo13/flame/flame.go:57.9,60.4 2 15
