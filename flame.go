@@ -14,6 +14,7 @@ var flameMap = map[string]string{
 }
 
 func removeCharacters(input string, characters string) string {
+	println("HELLO")
 	input = strings.ToLower(input)
 	characters = strings.ToLower(characters)
 
